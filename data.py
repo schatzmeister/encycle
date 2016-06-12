@@ -7,6 +7,7 @@
 # * read from console
 # * load from json
 # * dump data to json
+# * allow for processing entries with additional information
 
 import openpyxl as xl
 from collections import OrderedDict

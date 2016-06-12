@@ -1,5 +1,9 @@
 %! Mode::'TeX:UFT-8:DE'
 
+% TODOs:
+% * allow for additional information in entry environment
+% * first/last entry of a page in the header
+
 \documentclass[twocolumn]{scrbook}
 
 % Language specific imports and options
@@ -31,10 +35,6 @@
 % Entry environment
 % Mandatory Argument:
 % 		Lemma
-% Optional Arguments:
-%		Etymology in double pipe brackets
-%		Declination/Konjugation info in angle brackets
-%		Wordclass (adi, adv) and Genus (m, f, n) emphasised
 	\newenvironment{entry}[2]{
 		\parindent0em
 		\hangindent0.5em
