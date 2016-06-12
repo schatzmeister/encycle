@@ -1,0 +1,49 @@
+%! Mode::'TeX:UFT-8:DE'
+
+\documentclass[twocolumn]{scrbook}
+
+% Language specific imports and options
+	\usepackage{polyglossia}
+	\setdefaultlanguage{latin}
+	\setotherlanguage[variant=ancient, numerals=greek]{greek}
+	\setotherlanguage[
+		latesthyphen=true,
+		babelshorthands=true,
+		script=fraktur
+		]{german}
+
+% Font specific imports and options
+	\usepackage{fontspec}
+	\newfontfamily\latinfont{Cardo}
+	\newfontfamily\greekfont[Script=Greek]{Palatino Linotype}
+% Old Style Figures seem to not work with UnofrakturCook
+	\newfontfamily\germanfont[Numbers=OldStyle]{UnifrakturCook}
+
+	\usepackage{xspace}
+	% for letter spacing, emph can't be changed for fraktur only
+	\newcommand\textls[1]{ 
+		\xspace\addfontfeature{
+			LetterSpace=20.0,
+			WordSpace=1.5,
+			Ligatures={NoCommon}
+			}#1\relax}
+
+% Entry environment
+% Mandatory Argument:
+% 		Lemma
+% Optional Arguments:
+%		Etymology in double pipe brackets
+%		Declination/Konjugation info in angle brackets
+%		Wordclass (adi, adv) and Genus (m, f, n) emphasised
+	\newenvironment{entry}[2]{
+		\parindent0em
+		\hangindent0.5em
+		\textbf{#1}
+		\begingroup
+		\ifx&#2&
+		\|#2\|
+		\else
+			\relax
+		\fi
+		\leftskip=1em
+		\endgroup}
